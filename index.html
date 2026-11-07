@@ -3,45 +3,255 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Dra. Ana De Bortoli · Otorrinolaringologista</title>
-<meta name="description" content="Site da Dra. Ana De Bortoli Winckler, otorrinolaringologista em São Paulo. Em construção.">
+<title>Dra. Ana De Bortoli · Otorrinolaringologista em São Paulo</title>
+<meta name="description" content="Otorrinolaringologista adulto e infantil em São Paulo. Cirurgia de amígdala e adenoide com radiofrequência (coblation) e cirurgia endoscópica do nariz e dos seios da face. Atendimento particular.">
 <meta name="theme-color" content="#E4E1DA">
 <link rel="icon" href="assets/img/monograma.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Poppins:wght@400;500;700&family=Tinos:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Poppins:ital,wght@0,400;0,500;0,700;1,700&family=Tinos:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/base.css">
+<!-- RASCUNHO (branch rascunho-home, 07/11/2026): não publicar antes de a Analu revisar.
+     Pendências marcadas com [VALIDAR] nos comentários e em roadmap/03-site/LEIA-ME.md. -->
 <style>
-  /* página provisória da raiz: sai quando o site principal existir */
-  .coluna { min-height: 100svh; justify-content: center; padding-bottom: 96px; }
-  .titulo { margin-top: 34px; font-size: 54px; }
-  .especialidade { margin-top: 16px; font-size: 11.5px; font-weight: 500; }
-  .aviso { margin-top: 44px; font-family: var(--serifa); font-style: italic; font-size: 26px; color: var(--taupe); }
-  .apoio { margin-top: 12px; max-width: 300px; }
-  .acoes { width: 100%; max-width: 320px; margin-top: 32px; display: grid; gap: 12px; }
+  body { overflow-x: hidden; }
+  .faixa-rascunho { position: fixed; bottom: 12px; left: 12px; z-index: 50; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; background: var(--oliva); color: var(--creme); padding: 6px 10px; border-radius: 99px; }
+
+  .topo { position: sticky; top: 0; z-index: 20; background: rgba(228, 225, 218, .92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(153, 140, 120, .25); }
+  .topo-dentro { max-width: 1080px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--marrom); }
+  .marca img { width: 30px; height: auto; }
+  .marca span { font-family: var(--serifa); font-size: 21px; letter-spacing: -.02em; }
+  .menu { display: flex; gap: 22px; font-size: 13px; align-items: center; }
+  .menu a { color: var(--marrom); text-decoration: none; }
+  .menu a:hover { color: var(--oliva); text-decoration: underline; text-underline-offset: 4px; }
+  .menu .agendar-topo { background: var(--marrom); color: var(--creme); padding: 8px 14px; border-radius: 10px; }
+  .menu .agendar-topo:hover { background: var(--oliva); color: var(--creme); text-decoration: none; }
+  @media (max-width: 760px) { .menu a:not(.agendar-topo) { display: none; } }
+
+  section { position: relative; z-index: 1; }
+  .dentro { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  .rotulo-secao { font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: var(--taupe); margin-bottom: 14px; }
+  h2 { font-family: var(--serifa); font-weight: 400; font-size: clamp(34px, 5vw, 48px); line-height: 1; letter-spacing: -.035em; color: var(--marrom); }
+  h2 em { font-style: italic; }
+  h3 { font-family: var(--sans); font-weight: 700; font-size: 15px; letter-spacing: -.01em; margin-bottom: 6px; }
+  p, li { font-size: 16px; line-height: 1.6; letter-spacing: -.01em; }
+  .texto { max-width: 640px; }
+
+  /* abertura */
+  .abertura { padding: 48px 0 64px; }
+  .abertura .dentro { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+  .abertura h1 { font-family: var(--serifa); font-weight: 400; font-size: clamp(52px, 7vw, 84px); line-height: .9; letter-spacing: -.045em; }
+  .abertura h1 em { font-style: italic; }
+  .abertura .especialidade { margin-top: 18px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--taupe); }
+  .abertura .chamada { margin-top: 26px; font-size: 18px; line-height: 1.55; max-width: 480px; }
+  .abertura .chamada b { font-weight: 700; }
+  .abertura .acoes { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; max-width: 480px; }
+  .abertura .botao { width: auto; flex: 1 1 200px; }
+  .abertura .registro { margin-top: 22px; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--taupe); }
+  .abertura figure { margin: 0; aspect-ratio: 4 / 5; border-radius: 22px; overflow: hidden; background: #d9d5cc; }
+  .abertura figure img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
+  @media (max-width: 860px) {
+    .abertura .dentro { grid-template-columns: 1fr; gap: 32px; }
+    .abertura figure { order: -1; max-width: 420px; aspect-ratio: 1 / 1; }
+  }
+
+  /* blocos */
+  .bloco { padding: 72px 0; border-top: 1px solid rgba(153, 140, 120, .25); }
+  .bloco.escuro { background: var(--marrom); color: var(--creme); border-top: 0; }
+  .bloco.escuro h2, .bloco.escuro h3 { color: var(--creme); }
+  .bloco.escuro .rotulo-secao { color: var(--creme-cta); opacity: .75; }
+
+  .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px; }
+  @media (max-width: 760px) { .duas { grid-template-columns: 1fr; } }
+  .cartao { background: rgba(248, 246, 234, .6); border: 1px solid rgba(153, 140, 120, .3); border-radius: 18px; padding: 26px 26px 22px; }
+  .cartao .publico { font-family: var(--serifa); font-style: italic; font-size: 28px; letter-spacing: -.03em; margin-bottom: 14px; }
+  .cartao ul { list-style: none; padding: 0; }
+  .cartao li { padding: 10px 0; border-top: 1px solid rgba(153, 140, 120, .25); }
+  .cartao li:first-child { border-top: 0; padding-top: 0; }
+  .cartao li small { display: block; font-size: 13.5px; color: #7a6c5c; line-height: 1.45; }
+
+  .tecnica { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px; }
+  @media (max-width: 760px) { .tecnica { grid-template-columns: 1fr; } }
+  .tecnica > div { border: 1px solid rgba(248, 246, 234, .3); border-radius: 18px; padding: 24px; }
+  .tecnica p { font-size: 15px; }
+  .nota { margin-top: 26px; font-size: 15px; opacity: .9; max-width: 640px; }
+
+  .fatos { list-style: none; padding: 0; margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+  @media (max-width: 760px) { .fatos { grid-template-columns: 1fr; } }
+  .fatos li { padding: 16px 0; border-top: 1px solid rgba(153, 140, 120, .3); }
+  .fatos li b { display: block; font-weight: 700; font-size: 15px; }
+  .fatos li span { font-size: 14.5px; color: #6f6252; }
+  .formacao { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; align-items: start; }
+  .formacao figure { margin: 0; border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 5; }
+  .formacao figure img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; display: block; }
+  @media (max-width: 860px) { .formacao { grid-template-columns: 1fr; } .formacao figure { max-width: 360px; } }
+
+  .publicacao { margin-top: 30px; padding: 22px 24px; border-left: 3px solid var(--taupe); background: rgba(248, 246, 234, .5); border-radius: 0 14px 14px 0; }
+  .publicacao p { font-size: 15px; }
+  .publicacao a { color: var(--marrom); }
+
+  .tres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 34px; }
+  @media (max-width: 860px) { .tres { grid-template-columns: 1fr; } }
+  .tres p { font-size: 15px; }
+  .tres a { color: inherit; }
+
+  .fim { padding: 72px 0 56px; text-align: center; }
+  .fim h2 { margin-bottom: 14px; }
+  .fim .botao { max-width: 340px; margin: 26px auto 0; }
+  .rodape-site { position: relative; z-index: 1; padding: 28px 20px 40px; text-align: center; font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--taupe); line-height: 2; border-top: 1px solid rgba(153, 140, 120, .25); }
+  .rodape-site a { color: var(--taupe); }
+  .rodape-site .aviso-legal { text-transform: none; letter-spacing: 0; font-size: 12px; max-width: 520px; margin: 10px auto 0; line-height: 1.5; }
 </style>
 </head>
 <body>
-<div class="script" aria-hidden="true">em breve</div>
+<div class="faixa-rascunho">Rascunho · revisar</div>
+<div class="script" aria-hidden="true">cuidar</div>
 
-<main class="coluna">
-  <img class="monograma" src="assets/img/monograma.png" alt="Monograma Ana De Bortoli">
-  <h1 class="titulo"><span>Dra. Ana <em>De Bortoli</em></span></h1>
-  <p class="rotulo especialidade">Otorrinolaringologista</p>
-
-  <p class="aviso">Site em construção.</p>
-  <p class="apoio">Enquanto isso, <b>agende sua consulta</b> ou acompanhe meus conteúdos.</p>
-
-  <div class="acoes">
-    <a class="botao principal" href="https://wa.me/message/LVHUUN47TTDFE1" target="_blank" rel="noopener">
-      <span class="texto">Agendar consulta</span>
-    </a>
-    <a class="botao secundario" href="hub/">
-      <span class="texto">Todos os links</span>
-    </a>
+<header class="topo">
+  <div class="topo-dentro">
+    <a class="marca" href="#"><img src="assets/img/monograma.png" alt=""><span>Dra. Ana De Bortoli</span></a>
+    <nav class="menu">
+      <a href="#cirurgias">Cirurgias</a>
+      <a href="#radiofrequencia">Radiofrequência</a>
+      <a href="#formacao">Formação</a>
+      <a href="#consultorio">Consultório</a>
+      <a class="agendar-topo" href="https://wa.me/message/LVHUUN47TTDFE1" target="_blank" rel="noopener">Agendar</a>
+    </nav>
   </div>
+</header>
 
-  <footer class="rotulo rodape">CRM-SP 221636 · RQE 136554</footer>
+<main>
+  <section class="abertura">
+    <div class="dentro">
+      <div>
+        <h1>Dra. Ana<br><em>De Bortoli</em></h1>
+        <p class="especialidade">Otorrinolaringologista · adulto e infantil</p>
+        <p class="chamada">Cirurgia de <b>amígdala e adenoide com radiofrequência (coblation)</b> e cirurgia <b>endoscópica do nariz e dos seios da face</b>, em São Paulo.</p>
+        <div class="acoes">
+          <a class="botao principal" href="https://wa.me/message/LVHUUN47TTDFE1" target="_blank" rel="noopener"><span class="texto">Agendar consulta</span></a>
+          <a class="botao secundario" href="#outra-cidade"><span class="texto">Vem de outra cidade?</span></a>
+        </div>
+        <p class="registro">Médica · CRM-SP 221636 · Otorrinolaringologia · RQE 136554</p>
+      </div>
+      <figure><img src="assets/img/ana-retrato.jpg" alt="Dra. Ana De Bortoli, sentada, sorrindo"></figure>
+    </div>
+  </section>
+
+  <section class="bloco" id="cirurgias">
+    <div class="dentro">
+      <p class="rotulo-secao">O que eu opero</p>
+      <h2>Do nariz à <em>garganta</em>,<br>na criança e no adulto</h2>
+      <div class="duas">
+        <div class="cartao">
+          <p class="publico">Crianças</p>
+          <ul>
+            <li><h3>Amígdala</h3><small>Com radiofrequência (coblation): retirada parcial (intracapsular) ou total (extracapsular).</small></li>
+            <li><h3>Adenoide</h3><small>Com radiofrequência (coblation) e visão por câmera (endoscopia).</small></li>
+            <li><h3>Tubo de ventilação</h3><small>Para o líquido que se acumula atrás do tímpano.</small></li>
+            <li><h3>Cornetos</h3><small>A "carne esponjosa" que pode obstruir o nariz.</small></li>
+          </ul>
+        </div>
+        <div class="cartao">
+          <p class="publico">Adultos</p>
+          <ul>
+            <li><h3>Cirurgia endoscópica dos seios da face</h3><small>Para a sinusite crônica ou de repetição que não melhora com o tratamento clínico.</small></li>
+            <li><h3>Desvio de septo</h3><small>Para quem respira mal pelo nariz por causa do septo.</small></li>
+            <li><h3>Amígdala no adulto</h3><small>Com radiofrequência (coblation), quando há indicação.</small></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- [VALIDAR] "Amígdala no adulto": ela não citou na lista de adultos de 07/11; a pesquisa de 03/11 mostrou a busca sem médico no topo. Manter só se ela opera. -->
+
+  <section class="bloco escuro" id="radiofrequencia">
+    <div class="dentro">
+      <p class="rotulo-secao">Cirurgia com radiofrequência (coblation)</p>
+      <h2>Duas formas de operar<br>a <em>amígdala</em></h2>
+      <div class="texto" style="margin-top:22px">
+        <p>A radiofrequência (coblation) usa energia em meio de soro para remover o tecido em temperatura mais baixa que a do bisturi elétrico comum. Com ela, a amígdala pode ser operada de duas formas.</p>
+      </div>
+      <div class="tecnica">
+        <div>
+          <h3>Intracapsular (parcial)</h3>
+          <p>Remove o tecido de dentro da amígdala e mantém a cápsula, uma camada fina que cobre o músculo da garganta.</p>
+        </div>
+        <div>
+          <h3>Extracapsular (total)</h3>
+          <p>Remove a amígdala inteira, com a cápsula.</p>
+        </div>
+      </div>
+      <p class="nota">A escolha é individual e depende da história de cada paciente. Há situações em que a forma parcial não é indicada, como o abscesso. Na consulta, eu explico as duas, com os benefícios e os riscos de cada uma.</p>
+    </div>
+  </section>
+  <!-- [VALIDAR] frase "temperatura mais baixa": é a descrição técnica do método (fabricante e literatura); conferir com ela antes de publicar. -->
+
+  <section class="bloco" id="formacao">
+    <div class="dentro formacao">
+      <figure><img src="assets/img/ana-terno.jpg" alt="Dra. Ana De Bortoli, de terno cinza"></figure>
+      <div>
+        <p class="rotulo-secao">Formação e atuação</p>
+        <h2>Formação</h2>
+        <ul class="fatos">
+          <li><b>Medicina</b><span>Universidade de Caxias do Sul</span></li>
+          <li><b>Residência em Otorrinolaringologia</b><span>Hospital Edmundo Vasconcelos, São Paulo, com o Dr. Aldo Stamm</span></li>
+          <li><b>Estágio observacional (observership) em Rinologia e Base de Crânio</b><span>Stanford University, com o Dr. Peter H. Hwang</span></li>
+          <li><b>Retaguarda de otorrinolaringologia</b><span>Hospital Israelita Albert Einstein e Hospital Sírio-Libanês</span></li>
+          <li><b>Instrutora em cursos de dissecção</b><span>No Brasil e na Europa (Madri e Portugal)</span></li>
+          <li><b>Cofundadora de curso para otorrinos</b><span>Curso de cirurgia de amígdala e adenoide com radiofrequência em São Paulo, cinco turmas</span></li>
+        </ul>
+        <div class="publicacao">
+          <p><b>Pesquisa.</b> Desenvolveu, com o Dr. Raimar Weber, o e-A.L.Ex, um simulador impresso em 3D a partir de tomografias para o treino da adenoidectomia endoscópica.<br>
+          <a href="https://doi.org/10.1002/oto2.70043" target="_blank" rel="noopener"><i>Three-Dimensional Printing Simulator for Endoscopic Adenoidectomy Training</i>, OTO Open, 2025</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CFM 2.336 (pesquisa de 07/11): instrutora em vez de "staff e orientadora" (termo dela era staff/orientadora: confirmar); hospitais só em texto, sem logo, com ciência escrita de cada um.
+       [VALIDAR] UCS por extenso (transcrição); Stanford: ela estava em dúvida se cita; "Madri e Portugal": cidade de Portugal;
+       se os hospitais autorizam o nome (régua do CFM); "staff e orientadora" é o termo dela. -->
+
+  <section class="bloco" id="consultorio">
+    <div class="dentro">
+      <p class="rotulo-secao">Consultório</p>
+      <h2>Oscar Freire, <em>Jardins</em></h2>
+      <div class="tres">
+        <div><h3>Endereço</h3><p>Rua Oscar Freire, 2250, conjuntos 303 e 304, São Paulo, SP.<br><a href="https://www.google.com/maps/search/?api=1&query=Rua+Oscar+Freire+2250+S%C3%A3o+Paulo" target="_blank" rel="noopener">Ver no mapa</a></p></div>
+        <div><h3>Fonoaudiologia no mesmo lugar</h3><p>Equipe de fonoaudiologia com audiometria, inclusive em crianças. O exame pode ser feito no consultório e discutido na mesma consulta.</p></div>
+        <div><h3>Equipe</h3><p>Atendo no consultório junto com o Dr. Raimar Weber, otorrinolaringologista (CRM-SP [LACUNA] · RQE [LACUNA]).</p></div>
+      </div>
+    </div>
+  </section>
+  <!-- [VALIDAR] redação da fono ("redação a definir", 07/11); "na mesma consulta" só se for sempre possível. -->
+
+  <section class="bloco escuro" id="outra-cidade">
+    <div class="dentro">
+      <p class="rotulo-secao">Para quem vem de fora</p>
+      <h2>Vem de <em>outra cidade?</em></h2>
+      <div class="tres">
+        <div><h3>Primeiro contato</h3><p>Fale com a equipe pelo WhatsApp. Organizamos as datas da consulta, dos exames e, se houver indicação, da cirurgia.</p></div>
+        <div><h3>Em São Paulo</h3><p>O consultório fica na Rua Oscar Freire, nos Jardins, com hotéis e restaurantes por perto.</p></div>
+        <div><h3>Atendimento particular</h3><p>O atendimento é particular. Entregamos a documentação para você pedir o reembolso ao seu plano de saúde, conforme o seu contrato.</p></div>
+      </div>
+    </div>
+  </section>
+  <!-- [VALIDAR] logística real (quantos dias ficar, retorno à distância, consulta online antes); se fala de reembolso no site. -->
+
+  <section class="fim">
+    <div class="dentro">
+      <h2>Agende sua <em>consulta</em></h2>
+      <p>Pelo WhatsApp do consultório.</p>
+      <a class="botao principal" href="https://wa.me/message/LVHUUN47TTDFE1" target="_blank" rel="noopener"><span class="texto">Agendar pelo WhatsApp</span></a>
+    </div>
+  </section>
 </main>
+
+<footer class="rodape-site">
+  Dra. Ana De Bortoli Winckler · Médica<br>
+  CRM-SP 221636 · Otorrinolaringologia · RQE 136554<br>
+  <a href="https://www.instagram.com/anadebortolii/">@anadebortolii</a> · <a href="hub/">Links</a>
+  <p class="aviso-legal">As informações deste site são educativas e não substituem a consulta médica.</p>
+</footer>
 </body>
 </html>
