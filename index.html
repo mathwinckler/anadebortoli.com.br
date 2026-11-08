@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Poppins:ital,wght@0,400;0,500;0,700;1,700&family=Tinos:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/base.css">
-<!-- RASCUNHO (branch rascunho-home, 07/11/2026): não publicar antes de a Analu revisar.
+<!-- RASCUNHO v2 (branch rascunho-home, 08/11/2026, correções dos áudios da Analu): não publicar antes de a Analu revisar.
      Pendências marcadas com [VALIDAR] nos comentários e em roadmap/03-site/LEIA-ME.md. -->
 <style>
   body { overflow-x: hidden; }
@@ -127,7 +127,7 @@
       <div>
         <h1>Dra. Ana<br><em>De Bortoli</em></h1>
         <p class="especialidade">Otorrinolaringologista · adulto e infantil</p>
-        <p class="chamada">Cirurgia de <b>amígdala e adenoide com radiofrequência (coblation)</b> e cirurgia <b>endoscópica do nariz e dos seios da face</b>, em São Paulo.</p>
+        <p class="chamada">Cirurgia de <b>amígdala e adenoide com radiofrequência (coblation)</b> e cirurgia <b>endoscópica do nariz e dos seios da face</b>, em São Paulo. <b>Atendimento particular</b>, com primeira consulta online para quem é de fora.</p>
         <div class="acoes">
           <a class="botao principal" href="https://wa.me/message/LVHUUN47TTDFE1" target="_blank" rel="noopener"><span class="texto">Agendar consulta</span></a>
           <a class="botao secundario" href="#outra-cidade"><span class="texto">Vem de outra cidade?</span></a>
@@ -157,25 +157,26 @@
           <ul>
             <li><h3>Cirurgia endoscópica dos seios da face</h3><small>Para a sinusite crônica ou de repetição que não melhora com o tratamento clínico.</small></li>
             <li><h3>Desvio de septo</h3><small>Para quem respira mal pelo nariz por causa do septo.</small></li>
+            <li><h3>Cornetos</h3><small>A "carne esponjosa" que pode obstruir o nariz.</small></li>
+            <li><h3>Rinosseptoplastia funcional</h3><small>Para a obstrução do nariz que vai além do desvio de septo e dos cornetos, como a insuficiência da válvula nasal.</small></li>
             <li><h3>Amígdala no adulto</h3><small>Com radiofrequência (coblation), quando há indicação.</small></li>
           </ul>
         </div>
       </div>
     </div>
   </section>
-  <!-- [VALIDAR] "Amígdala no adulto": ela não citou na lista de adultos de 07/11; a pesquisa de 03/11 mostrou a busca sem médico no topo. Manter só se ela opera. -->
 
   <section class="bloco escuro" id="radiofrequencia">
     <div class="dentro">
       <p class="rotulo-secao">Cirurgia com radiofrequência (coblation)</p>
       <h2>Duas formas de operar<br>a <em>amígdala</em></h2>
       <div class="texto" style="margin-top:22px">
-        <p>A radiofrequência (coblation) usa energia em meio de soro para remover o tecido em temperatura mais baixa que a do bisturi elétrico comum. Com ela, a amígdala pode ser operada de duas formas.</p>
+        <p>A radiofrequência (coblation) usa energia de plasma em meio de soro. Ela dissolve o tecido, aspira e coagula ao mesmo tempo, em temperatura mais baixa que a do bisturi elétrico (cautério) comum. Com ela, a amígdala pode ser operada de duas formas.</p>
       </div>
       <div class="tecnica">
         <div>
           <h3>Intracapsular (parcial)</h3>
-          <p>Remove o tecido de dentro da amígdala e mantém a cápsula, uma camada fina que cobre o músculo da garganta.</p>
+          <p>Retira cerca de 90 a 95% do tecido da amígdala e mantém a cápsula, uma camada fina que cobre o músculo da garganta.</p>
         </div>
         <div>
           <h3>Extracapsular (total)</h3>
@@ -185,7 +186,6 @@
       <p class="nota">A escolha é individual e depende da história de cada paciente. Há situações em que a forma parcial não é indicada, como o abscesso. Na consulta, eu explico as duas, com os benefícios e os riscos de cada uma.</p>
     </div>
   </section>
-  <!-- [VALIDAR] frase "temperatura mais baixa": é a descrição técnica do método (fabricante e literatura); conferir com ela antes de publicar. -->
 
   <section class="bloco" id="formacao">
     <div class="dentro formacao">
@@ -194,49 +194,44 @@
         <p class="rotulo-secao">Formação e atuação</p>
         <h2>Formação</h2>
         <ul class="fatos">
-          <li><b>Medicina</b><span>Universidade de Caxias do Sul</span></li>
+          <li><b>Medicina</b><span>Universidade de Caxias do Sul, Rio Grande do Sul</span></li>
           <li><b>Residência em Otorrinolaringologia</b><span>Hospital Edmundo Vasconcelos, São Paulo, com o Dr. Aldo Stamm</span></li>
-          <li><b>Estágio observacional (observership) em Rinologia e Base de Crânio</b><span>Stanford University, com o Dr. Peter H. Hwang</span></li>
+          <li><b>Observership em Rinologia e Base de Crânio</b><span>Stanford University, com o Dr. Peter H. Hwang</span></li>
           <li><b>Retaguarda de otorrinolaringologia</b><span>Hospital Israelita Albert Einstein e Hospital Sírio-Libanês</span></li>
           <li><b>Instrutora em cursos de dissecção</b><span>No Brasil e na Europa (Madri e Portugal)</span></li>
           <li><b>Cofundadora de curso para otorrinos</b><span>Curso de cirurgia de amígdala e adenoide com radiofrequência em São Paulo, cinco turmas</span></li>
         </ul>
         <div class="publicacao">
           <p><b>Pesquisa.</b> Desenvolveu, com o Dr. Raimar Weber, o e-A.L.Ex, um simulador impresso em 3D a partir de tomografias para o treino da adenoidectomia endoscópica.<br>
-          <a href="https://doi.org/10.1002/oto2.70043" target="_blank" rel="noopener"><i>Three-Dimensional Printing Simulator for Endoscopic Adenoidectomy Training</i>, OTO Open, 2025</a>.</p>
+          Publicado na revista americana de otorrinolaringologia <i>OTO Open</i> (2025): <a href="https://doi.org/10.1002/oto2.70043" target="_blank" rel="noopener"><i>Three-Dimensional Printing Simulator for Endoscopic Adenoidectomy Training</i></a>.</p>
         </div>
       </div>
     </div>
   </section>
-  <!-- CFM 2.336 (pesquisa de 07/11): instrutora em vez de "staff e orientadora" (termo dela era staff/orientadora: confirmar); hospitais só em texto, sem logo, com ciência escrita de cada um.
-       [VALIDAR] UCS por extenso (transcrição); Stanford: ela estava em dúvida se cita; "Madri e Portugal": cidade de Portugal;
-       se os hospitais autorizam o nome (régua do CFM); "staff e orientadora" é o termo dela. -->
 
   <section class="bloco" id="consultorio">
     <div class="dentro">
       <p class="rotulo-secao">Consultório</p>
-      <h2>Oscar Freire, <em>Jardins</em></h2>
+      <h2>Oscar Freire, <em>Pinheiros</em></h2>
       <div class="tres">
-        <div><h3>Endereço</h3><p>Rua Oscar Freire, 2250, conjuntos 303 e 304, São Paulo, SP.<br><a href="https://www.google.com/maps/search/?api=1&query=Rua+Oscar+Freire+2250+S%C3%A3o+Paulo" target="_blank" rel="noopener">Ver no mapa</a></p></div>
+        <div><h3>Endereço</h3><p>Rua Oscar Freire, 2250, conjuntos 303 e 304, Pinheiros, São Paulo, SP, CEP 05409-011.<br><a href="https://www.google.com/maps/search/?api=1&query=Rua+Oscar+Freire+2250+S%C3%A3o+Paulo" target="_blank" rel="noopener">Ver no mapa</a></p></div>
         <div><h3>Fonoaudiologia no mesmo lugar</h3><p>Equipe de fonoaudiologia com audiometria, inclusive em crianças. O exame pode ser feito no consultório e discutido na mesma consulta.</p></div>
-        <div><h3>Equipe</h3><p>Atendo no consultório junto com o Dr. Raimar Weber, otorrinolaringologista (CRM-SP [LACUNA] · RQE [LACUNA]).</p></div>
+        <div><h3>Equipe</h3><p>Atendo no consultório junto com o Dr. Raimar Weber, otorrinolaringologista (CRM-SP 110.873).</p></div>
       </div>
     </div>
   </section>
-  <!-- [VALIDAR] redação da fono ("redação a definir", 07/11); "na mesma consulta" só se for sempre possível. -->
 
   <section class="bloco escuro" id="outra-cidade">
     <div class="dentro">
       <p class="rotulo-secao">Para quem vem de fora</p>
       <h2>Vem de <em>outra cidade?</em></h2>
       <div class="tres">
-        <div><h3>Primeiro contato</h3><p>Fale com a equipe pelo WhatsApp. Organizamos as datas da consulta, dos exames e, se houver indicação, da cirurgia.</p></div>
-        <div><h3>Em São Paulo</h3><p>O consultório fica na Rua Oscar Freire, nos Jardins, com hotéis e restaurantes por perto.</p></div>
-        <div><h3>Atendimento particular</h3><p>O atendimento é particular. Entregamos a documentação para você pedir o reembolso ao seu plano de saúde, conforme o seu contrato.</p></div>
+        <div><h3>Primeira consulta online</h3><p>A primeira consulta pode ser online. Se houver indicação, a cirurgia é realizada em São Paulo. A equipe organiza as datas pelo WhatsApp.</p></div>
+        <div><h3>Como é a cirurgia</h3><p>A cirurgia é particular e feita em hospital de São Paulo. A parte hospitalar pode ser coberta pelo seu plano de saúde, conforme o contrato.</p></div>
+        <div><h3>Atendimento particular</h3><p>Entregamos a documentação para você pedir o reembolso ao seu plano de saúde, conforme o contrato do plano. E agende sua consulta pelo WhatsApp do consultório.</p></div>
       </div>
     </div>
   </section>
-  <!-- [VALIDAR] logística real (quantos dias ficar, retorno à distância, consulta online antes); se fala de reembolso no site. -->
 
   <section class="fim">
     <div class="dentro">
