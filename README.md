@@ -4,7 +4,7 @@ Site estático, sem build: HTML e CSS puros, publicados como estão.
 
 | caminho | o que é | estado |
 |---|---|---|
-| `/` | página principal. Hoje é provisória ("site em construção"), com agendar e link para o hub | provisória |
+| `/` | home: abertura, o que opera (crianças × adultos), radiofrequência, formação, consultório, quem vem de outra cidade, agendar | no ar desde 08/11/2026 |
 | `/hub/` | página de links da bio do Instagram (agendar pelo WhatsApp, onde atendo, Instagram) | no ar quando publicar |
 | `/404.html` | página não encontrada, leva ao hub | pronta |
 | `assets/css/base.css` | paleta, fontes, título, botões e rodapé, comuns a todas as páginas | base |
